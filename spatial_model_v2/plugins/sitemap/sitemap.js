@@ -256,8 +256,14 @@
             }
         } else if(message == 'adaptiveViewChange') {
             $('.adaptiveViewOption').removeClass('currentAdaptiveView');
-            if(data) $('div[val="' + data + '"]').addClass('currentAdaptiveView');
+            if(data.viewId) {$('div[val="' + data.viewId + '"]').addClass('currentAdaptiveView');}
             else $('div[val="default"]').addClass('currentAdaptiveView');
+
+            //when we set adaptive view through user event, we want to update the checkmark on sitemap
+            if(data.forceSwitchTo) {
+                $('.checkedAdaptive').removeClass('checkedAdaptive');
+                $('div[val="' + data.forceSwitchTo + '"]').find('.adaptiveCheckboxDiv').addClass('checkedAdaptive');
+            }
         }
     });
 
@@ -559,7 +565,12 @@
         //We use replace so that every hash change doesn't get appended to the history stack.
         //We use replaceState in browsers that support it, else replace the location
         if(typeof window.history.replaceState != 'undefined') {
-            window.history.replaceState(null, null, currentLocWithoutHash + newHash);
+            try {
+                //Chrome 45 (Version 45.0.2454.85 m) started throwing an error here when generated locally (this only happens with sitemap open) which broke all interactions.
+                //try catch breaks the url adjusting nicely when the sitemap is open, but all interactions and forward and back buttons work.
+                //Uncaught SecurityError: Failed to execute 'replaceState' on 'History': A history state object with URL 'file:///C:/Users/Ian/Documents/Axure/HTML/Untitled/start.html#p=home' cannot be created in a document with origin 'null'.
+                window.history.replaceState(null, null, currentLocWithoutHash + newHash);
+            } catch(ex) { }
         } else {
             window.location.replace(currentLocWithoutHash + newHash);
         }
