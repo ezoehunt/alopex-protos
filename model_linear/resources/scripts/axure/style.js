@@ -675,9 +675,10 @@
         var idQuery = $jobj(id);
         if($ax.public.fn.isCompoundVectorHtml(idQuery[0])) {
             var imageChildren = idQuery.find('img');
-            var intercept1 = imgUrl.lastIndexOf(".");
-            var intercept2 = imgUrl.indexOf("_");
-            if(intercept2 >= 0 && intercept2 < intercept1) intercept1 = intercept2;
+            var intercept1 = imgUrl.lastIndexOf('.');
+            var intercept2 = imgUrl.lastIndexOf('_');
+            var intercept3 = imgUrl.lastIndexOf('/');
+            if(intercept2 >= 0 && intercept2 < intercept1 && intercept3 < intercept2) intercept1 = intercept2;
 
             var imgUrlHead = imgUrl.substring(0, intercept1);
             var imgUrlTail = imgUrl.substring(intercept1);

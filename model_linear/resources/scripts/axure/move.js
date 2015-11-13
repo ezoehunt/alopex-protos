@@ -2,89 +2,110 @@
     var _move = {};
     $ax.move = _move;
 
-    //todo may want to create $ax.rotate if we add more rotate functions
-
     var widgetMoveInfo = {};
-
-    $ax.move.GetWidgetMoveInfo = function() {
-        return $.extend({}, widgetMoveInfo);
-    };
-
-    $ax.move.MoveWidget = function (id, x, y, easing, duration, to, animationCompleteCallback, shouldFire, jobj, layerId) {
-        $ax.drag.LogMovedWidgetForDrag(id);
-
-        // If using custom jquery object, then even if panel is fixed, custom query shouldn't be treated as fixed
+    var _getMoveInfo = $ax.move.RegisterMoveInfo = function (id, x, y, to, options, jobj) {
         var fixedInfo = jobj ? {} : $ax.dynamicPanelManager.getFixedInfo(id);
 
         var widget = $jobj(id);
         var isLayer = $ax.getTypeFromElementId(id) == $ax.constants.LAYER_TYPE;
-        if (isLayer) {
-            $ax.visibility.pushContainer(id, false);
-            widget = $jobj(id + '_container');
+        var rootLayer = isLayer ? id : '';
+
+        var parentIds = $ax('#' + id).getParents(true, '*')[0];
+        for(var i = 0; i < parentIds.length; i++) {
+            var parentId = parentIds[i];
+            // Keep climbing up layers until you hit a non-layer. At that point you have your root layer
+            if ($ax.public.fn.IsLayer($ax.getTypeFromElementId(parentId))) rootLayer = parentId;
+            else break;
         }
-        if(!jobj) jobj = widget;
+
+        if(rootLayer) {
+            $ax.visibility.pushContainer(rootLayer, false);
+            if(isLayer) widget = $jobj(id + '_container');
+        }
+        if (!jobj) jobj = widget;
 
         var horzProp = 'left';
         var vertProp = 'top';
         var horzX = to ? x - Number(jobj.css('left').replace('px', '')) : x;
         var vertY = to ? y - Number(jobj.css('top').replace('px', '')) : y;
 
-
-        if(fixedInfo.horizontal == 'right') {
+        if (fixedInfo.horizontal == 'right') {
             horzProp = 'right';
             horzX = to ? $(window).width() - x - Number(jobj.css('right').replace('px', '')) - widget.width() : -x;
-        } else if(fixedInfo.horizontal == 'center') {
-            if(to) horzX = x - $(window).width() / 2;
+        } else if (fixedInfo.horizontal == 'center') {
+            if (to) horzX = x - $(window).width() / 2;
         }
 
-        if(fixedInfo.vertical == 'bottom') {
+        if (fixedInfo.vertical == 'bottom') {
             vertProp = 'bottom';
             vertY = to ? $(window).height() - y - Number(jobj.css('bottom').replace('px', '')) - widget.height() : -y;
-        } else if(fixedInfo.vertical == 'middle') {
+        } else if (fixedInfo.vertical == 'middle') {
             vertProp = 'margin-top';
-            if(to) vertY = y - $(window).height() / 2;
+            if (to) vertY = y - $(window).height() / 2;
         }
+
+        //todo currently this always save the info, which is not needed for compound vector children and maybe some other cases
+        //let's optimize it later, only register if registerid is valid..
+        widgetMoveInfo[id] = {
+            x: horzX,
+            y: vertY,
+            options: options
+        };
+
+        return {
+            horzX: horzX,
+            vertY: vertY,
+            horzProp: horzProp,
+            vertProp: vertProp,
+            rootLayer: rootLayer,
+            jobj: jobj
+        };
+    };
+    $ax.move.GetWidgetMoveInfo = function() {
+        return $.extend({}, widgetMoveInfo);
+    };
+
+    $ax.move.MoveWidget = function (id, x, y, easing, duration, to, animationCompleteCallback, shouldFire, jobj, moveInfo) {
+        $ax.drag.LogMovedWidgetForDrag(id);
+
+        if(!moveInfo) moveInfo = _getMoveInfo(id, x, y, to, { easing: easing, duration: duration }, jobj);
+        jobj = moveInfo.jobj;
         var cssStyles = {};
 
-        if(!$ax.dynamicPanelManager.isPercentWidthPanel($obj(id))) cssStyles[horzProp] = '+=' + horzX;
-        cssStyles[vertProp] = '+=' + vertY;
+        if(!$ax.dynamicPanelManager.isPercentWidthPanel($obj(id))) cssStyles[moveInfo.horzProp] = '+=' + moveInfo.horzX;
+        cssStyles[moveInfo.vertProp] = '+=' + moveInfo.vertY;
 
-        var rootLayer = '';
-        var parents = $ax('#' + id).getParents(true, '*')[0];
-        for(var i = 0; i < parents.length; i++) {
-            var parentId = parents[i];
-            if($ax.public.fn.IsLayer($ax.getTypeFromElementId(parentId))) {
-                rootLayer = parentId;
-            } else break;
-        }
-        if(rootLayer) $ax.visibility.pushContainer(rootLayer, false);
-        var onComplete = function() {
-            if(animationCompleteCallback) animationCompleteCallback();
-            $ax.visibility.popContainer(rootLayer, false);
-            if(isLayer) $ax.visibility.popContainer(id, false);
-        };
+        // I don't think root layer is necessary anymore after changes to layer container structure.
+        //  Wait to try removing it until more stable.
+        var rootLayer = moveInfo.rootLayer;
 
         var query = jobj.add($jobj(id + '_ann')).add($jobj(id + '_ref'));
         if(easing == 'none') {
             query.animate(cssStyles, { duration: 0, queue: false });
-            onComplete();
+
+            if(animationCompleteCallback) animationCompleteCallback();
+            if(rootLayer) $ax.visibility.popContainer(rootLayer, false);
             //if this widget is inside a layer, we should just remove the layer from the queue
-            if(shouldFire) $ax.action.fireAnimationFromQueue(layerId || id, $ax.action.queueTypes.move);
+            if(shouldFire) $ax.action.fireAnimationFromQueue(id, $ax.action.queueTypes.move);
         } else {
-            query.animate(cssStyles, { duration: duration, easing: easing, queue: false, complete: function() {
-                onComplete();
-                if(shouldFire) $ax.action.fireAnimationFromQueue(layerId || id, $ax.action.queueTypes.move);
+            var completeCount = query.length;
+            query.animate(cssStyles, {
+                duration: duration, easing: easing, queue: false, complete: function () {
+                if (animationCompleteCallback) animationCompleteCallback();
+                completeCount--;
+                if(completeCount == 0 && rootLayer) $ax.visibility.popContainer(rootLayer, false);
+                if(shouldFire) $ax.action.fireAnimationFromQueue(id, $ax.action.queueTypes.move);
             }});
         }
 
-        //moveinfo is used for moving 'with this'
-        var moveInfo = new Object();
-        moveInfo.x = horzX;
-        moveInfo.y = vertY;
-        moveInfo.options = {};
-        moveInfo.options.easing = easing;
-        moveInfo.options.duration = duration;
-        widgetMoveInfo[id] = moveInfo;
+//        //moveinfo is used for moving 'with this'
+//        var moveInfo = new Object();
+//        moveInfo.x = horzX;
+//        moveInfo.y = vertY;
+//        moveInfo.options = {};
+//        moveInfo.options.easing = easing;
+//        moveInfo.options.duration = duration;
+//        widgetMoveInfo[id] = moveInfo;
     };
 
     _move.nopMove = function(id) {

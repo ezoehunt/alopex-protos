@@ -64,30 +64,14 @@ $axure.internal(function($ax) {
     var _refreshRepeater = function(repeaterId, eventInfo, itemsPregen) {
         // Don't show if you have a parent rdos thats limboed.
         var rdoPath = $ax.getPathFromScriptId(repeaterId);
-        var view = $ax.adaptive.currentViewId;
-        var chain = $ax.adaptive.getAdaptiveIdChain(view);
-        var testView = view;
         // Check each parent rdo through appropriate views to see if you are limboed
         while (rdoPath.length > 0) {
-            var testingChain = testView;
-            var rdoObj = $obj($ax.getScriptIdFromPath(rdoPath));
-            var style = testView ? rdoObj.adaptiveStyles && rdoObj.adaptiveStyles[testView] : rdoObj.style;
-            if(style && typeof (style.limbo) != 'undefined') {
-                if(style.limbo) {
-                    removeItems(repeaterId);
-                    return;
-                }
-                // Otherwise this chain is good, move up rdo again
-                testingChain = false;
+            if(!$ax.getScriptIdFromPath(rdoPath)) {
+                removeItems(repeaterId);
+                return;
             }
 
-            if(testingChain) {
-                var viewIndex = chain.indexOf(testView);
-                testView = viewIndex == 0 ? '' : chain[viewIndex - 1];
-            } else {
-                $ax.splice(rdoPath, rdoPath.length - 1, 1);
-                testView = view;
-            }
+            $ax.splice(rdoPath, rdoPath.length - 1, 1);
         }
 
         _loaded[repeaterId] = true;
@@ -1752,9 +1736,8 @@ $axure.internal(function($ax) {
     //  change (if it happened) to break this.
     var _compressToggle = function (id, vert, show, easing, duration) {
         var layer = $ax.getTypeFromElementId(id) == $ax.constants.LAYER_TYPE;
-        var panelJobj = $jobj(id);
         var locProp = vert ? 'top' : 'left';
-        var threshold = layer ? $ax('#' + id)[locProp]() : Number(panelJobj.css(locProp).replace('px', ''));
+        var threshold = $ax('#' + id)[locProp](true);
         var dimProp = vert ? 'height' : 'width';
         var delta = layer ? $ax('#' + id)[dimProp]() : _getShownState(id)[dimProp]();
 
@@ -1771,13 +1754,12 @@ $axure.internal(function($ax) {
 
     // Used when setting state of dynamic panel
     var _compressDelta = function(id, oldState, newState, vert, easing, duration) {
-        var panelQuery = $jobj(id);
         var oldQuery = $jobj(oldState);
         var newQuery = $jobj(newState);
 
         var thresholdProp = vert ? 'top' : 'left';
         var thresholdOffset = vert ? 'height' : 'width';
-        var threshold = Number(panelQuery.css(thresholdProp).replace('px', ''));
+        var threshold = $ax('#' + id)[thresholdProp](true);
         threshold += oldQuery[thresholdOffset]();
 
         var delta = newQuery[thresholdOffset]() - oldQuery[thresholdOffset]();
@@ -1803,6 +1785,11 @@ $axure.internal(function($ax) {
             if(typeof clampWidth == 'undefined') clampWidth = _getClamp(id)[clamp.offset]();
 
             clamp.start = Number(clampLoc.css(clamp.prop).replace('px', ''));
+            var body = $('body');
+            if(vert && body.css('position') == 'relative') {
+                clamp.start += (Number(body.css('left').replace('px', '')) + Math.max(0, ($(window).width() - body.width()) / 2));
+            }
+
             clamp.end = clamp.start + clampWidth;
         }
 
@@ -1832,7 +1819,6 @@ $axure.internal(function($ax) {
                 var clampProp = clamp.prop == 'left' ? offsetX : offsetY;
                 var threshProp = clamp.prop == 'left' ? offsetY : offsetX;
                 threshold += threshProp;
-                delta += threshProp;
                 clamp.start += clampProp;
                 clamp.end += clampProp;
             }
@@ -1871,19 +1857,26 @@ $axure.internal(function($ax) {
             var childId = child.attr('id');
 
             // Don't move self, and check id to make sure it is a widget.
-            if(childId == id || !childId || childId[0] != 'u') continue;
+            if(childId == id || !childId || childId[0] != 'u') {
+                allMove = false;
+                continue;
+            }
 
             if ($ax.getTypeFromElementId(childId) == $ax.constants.LAYER_TYPE) {
                 var addSelf;
                 var container = $jobj(childId + '_container');
+                var layerChildren = child.children();
+                while(layerChildren.length && $(layerChildren[0]).attr('id').indexOf('_container') != -1) {
+                    layerChildren = layerChildren.children();
+                }
                 if(container.length) {
                     var offsetX = -$ax.getNumFromPx(container.css('left'));
                     var offsetY = -$ax.getNumFromPx(container.css('top'));
                     var clampProp = clamp.prop == 'left' ? offsetX : offsetY;
                     var threshProp = clamp.prop == 'left' ? offsetY : offsetX;
                     var layerClamp = { prop: clamp.prop, offset: clamp.offset, start: clamp.start + clampProp, end: clamp.end + clampProp };
-                    addSelf = _compressChildrenHelper(id, child.children(), vert, threshold + threshProp, delta + threshProp, layerClamp, easing, duration, childId);
-                } else addSelf = _compressChildrenHelper(id, child.children(), vert, threshold, delta, clamp, easing, duration, childId);
+                    addSelf = _compressChildrenHelper(id, layerChildren, vert, threshold + threshProp, delta, layerClamp, easing, duration, childId);
+                } else addSelf = _compressChildrenHelper(id, layerChildren, vert, threshold, delta, clamp, easing, duration, childId);
 
                 if(addSelf) toMove.push(childId);
                 else allMove = false;
@@ -1917,8 +1910,8 @@ $axure.internal(function($ax) {
             } else {
                 var axChild = $ax('#' + childId);
                 var markerProp = vert ? 'top' : 'left';
-                marker = Number(axChild[markerProp]());
-                childClamp = [Number(axChild[clamp.prop]())];
+                marker = Number(axChild[markerProp](true));
+                childClamp = [Number(axChild[clamp.prop](true))];
                 // Dynamic panels are not reporting correct size sometimes, so pull it from the state. Get shown state just returns the widget if it is not a dynamic panel.
                 var sizeChild = _getShownState(childId);
                 childClamp[1] = childClamp[0] + sizeChild[clamp.offset]();
@@ -1930,7 +1923,11 @@ $axure.internal(function($ax) {
                 continue;
             }
 
-            $ax.event.raiseSyntheticEvent(childId, "onMove");
+            if (allMove && parentLayer) {
+                //should i nopmove here?
+                //$ax.move.nopMove(childId);
+                $ax.event.raiseSyntheticEvent(childId, "onMove");
+            }
             toMove.push(childId);
         }
 

@@ -193,12 +193,15 @@
         };
         $ax.getElementIdsFromPath = _getElementIdsFromPath;
 
-        var _getElementIdFromPath = function(path, params) {
+        var _getElementIdFromPath = function (path, params) {
+            var scriptId = _getScriptIdFromPath(path, params.relativeTo);
+            if (!scriptId) return scriptId;
+
             var itemNum = params.itemNum;
             if(params.relativeTo && typeof params.relativeTo === 'string') {
                 if($jobj(params.relativeTo)) itemNum = $ax.repeater.getItemIdFromElementId(params.relativeTo);
             }
-            return $ax.repeater.createElementId(_getScriptIdFromPath(path, params.relativeTo), itemNum);
+            return $ax.repeater.createElementId(scriptId, itemNum);
         };
         $ax.getElementIdFromPath = _getElementIdFromPath;
 

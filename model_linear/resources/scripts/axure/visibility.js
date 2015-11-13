@@ -109,7 +109,7 @@
         }
 
         var child = $jobj(childId);
-        var size = options.size || child;
+        var size = options.size || (options.containerExists ? $(child.children()[0]) : child);
 
         var isIdFitToContent = $ax.dynamicPanelManager.isIdFitToContent(parentId);
         //fade and resize won't work together when there is a container... but we still needs the container for fit to content DPs
@@ -633,13 +633,15 @@
                 var childIds = $ax('#' + id).getChildren()[0].children;
                 for(var i = 0; i < childIds.length; i++) {
                     var childId = childIds[i];
-                    if($ax.getTypeFromElementId(childId) == $ax.constants.LAYER_TYPE) {
-                        _pushContainer(childId, false);
-                    }
-                    $jobj(childId).css({
+                    var cssChange = {
                         left: '-=' + css.left,
                         top: '-=' + css.top
-                    });
+                    };
+                    if($ax.getTypeFromElementId(childId) == $ax.constants.LAYER_TYPE) {
+                        _pushContainer(childId, false);
+                        $jobj(childId + '_container').css(cssChange);
+                    } else $jobj(childId).css(cssChange);
+
                     container.append($jobj(childId));
                 }
             }
@@ -673,13 +675,14 @@
             var childIds = $ax('#' + id).getChildren()[0].children;
             for (var i = 0; i < childIds.length; i++) {
                 var childId = childIds[i];
-                if($ax.getTypeFromElementId(childId) == $ax.constants.LAYER_TYPE) {
-                    _popContainer(childId, false);
-                }
-                $jobj(childIds[i]).css({
+                var cssChange = {
                     left: '+=' + left,
                     top: '+=' + top
-                });
+                };
+                if($ax.getTypeFromElementId(childId) == $ax.constants.LAYER_TYPE) {
+                    $jobj(childId + '_container').css(cssChange);
+                    _popContainer(childId, false);
+                } else $jobj(childIds[i]).css(cssChange);
             }
         }
     };
@@ -910,11 +913,11 @@
     $ax.visibility.initialize = function() {
         // initialize initial visible states
         $(".ax_default_hidden").each(function (index, diagramObject) {
-            _defaultHidden[diagramObject.id] = true;
+            _defaultHidden[$ax.repeater.getScriptIdFromElementId(diagramObject.id)] = true;
         });
 
         $(".ax_default_unplaced").each(function (index, diagramObject) {
-            _defaultLimbo[diagramObject.id] = true;
+            _defaultLimbo[$ax.repeater.getScriptIdFromElementId(diagramObject.id)] = true;
         });
 
         $ax.visibility.addLimboAndHiddenIds(_defaultLimbo, _defaultHidden, $ax('*'));

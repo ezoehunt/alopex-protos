@@ -345,11 +345,13 @@ $axure.internal(function($ax) {
 
         // Layer move using container now.
         if ($ax.public.fn.IsLayer(obj.type)) {
+            var moveInfo = $ax.move.RegisterMoveInfo(elementId, x, y, moveTo, {easing: easing, duration: duration});
+            $ax.event.raiseSyntheticEvent(elementId, "onMove");
             $ax.move.MoveWidget(elementId, x, y, easing, duration, moveTo,
                 function () {
                     if(options.onComplete) options.onComplete();
                     $ax.dynamicPanelManager.fitParentPanel(elementId);
-                }, false);
+                }, false, undefined, moveInfo);
             //var childrenIds = $ax.public.fn.getLayerChildrenDeep(elementId);
             //if(childrenIds.length == 0) return;
 
@@ -363,15 +365,21 @@ $axure.internal(function($ax) {
 
         } else if(obj.generateCompound && moveTo) {
             var location = _getCompoundImageLocation($jobj(elementId));
-            $ax.move.MoveWidget(elementId, x - location.X, y - location.Y, easing, duration, false,
-                function() { $ax.dynamicPanelManager.fitParentPanel(elementId); }, true);
+            var xDelta = x - location.X;
+            var yDelta = y - location.Y;
+            moveInfo = $ax.move.RegisterMoveInfo(elementId, xDelta, yDelta, moveTo, { easing: easing, duration: duration });
+            $ax.event.raiseSyntheticEvent(elementId, "onMove");
+            $ax.move.MoveWidget(elementId, xDelta, yDelta, easing, duration, false,
+                function() { $ax.dynamicPanelManager.fitParentPanel(elementId); }, true, undefined, moveInfo);
         } else {
+            moveInfo = $ax.move.RegisterMoveInfo(elementId, x, y, moveTo, { easing: easing, duration: duration });
+            $ax.event.raiseSyntheticEvent(elementId, "onMove");
             $ax.move.MoveWidget(elementId, x, y, easing, duration, moveTo,
-                function() { $ax.dynamicPanelManager.fitParentPanel(elementId); }, true);
+                function () { $ax.dynamicPanelManager.fitParentPanel(elementId); }, true, undefined, moveInfo);
         }
     };
 
-    var _getCompoundImageLocation = function (query) {
+    var _getCompoundImageLocation = function(query) {
         var fourCorners = $ax.public.fn.getFourCorners(query);
 
         var basis = $ax.public.fn.fourCornersToBasis(fourCorners);
@@ -382,7 +390,7 @@ $axure.internal(function($ax) {
             X: (fourCorners.widgetTopLeft.x + fourCorners.widgetBottomRight.x - width) / 2.0,
             Y: (fourCorners.widgetTopLeft.y + fourCorners.widgetBottomRight.y - height) / 2.0
         };
-    }
+    };
 
 
     $ax.public.fn.moveTo = function (x, y, options) {
@@ -401,6 +409,7 @@ $axure.internal(function($ax) {
             for(var i = 0; i < elementIds.length; i++) {
                 var elementId = elementIds[i];
                 $ax.move.nopMove(elementId);
+                $ax.event.raiseSyntheticEvent(elementId, "onMove");
                 $ax.action.fireAnimationFromQueue(elementId, $ax.action.queueTypes.move);
             }
             return this;
@@ -1178,7 +1187,7 @@ $axure.internal(function($ax) {
 
         var left = _getLoc(firstId, false, false, relative);
         var body = $('body');
-        if(body.css('position') == 'relative') left -= (Number(body.css('left').replace('px', '')) + Math.max(0, ($(window).width() - body.width()) / 2));
+        if(body.css('position') == 'relative') left += (Number(body.css('left').replace('px', '')) + Math.max(0, ($(window).width() - body.width()) / 2));
         return left;
     };
 

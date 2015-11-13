@@ -441,7 +441,7 @@
                 func: function() {
                     var layerInfo = $ax.public.fn.getWidgetBoundingRect(elementId);
                     deltaLoc = _getMoveLoc(moveInfo, eventInfoCopy, layerInfo);
-                    $ax.event.raiseSyntheticEvent(elementId, "onMove");
+//                    $ax.event.raiseSyntheticEvent(elementId, "onMove");
                     $ax.visibility.pushContainer(elementId, false);
                     _fireAnimationFromQueue(elementId, queueTypes.move);
 
@@ -474,7 +474,7 @@
             _addAnimation(elementId, queueTypes.move, function() {
                 var loc = _getMoveLoc(moveInfo, eventInfoCopy);
 
-                $ax.event.raiseSyntheticEvent(elementId, "onMove");
+//                $ax.event.raiseSyntheticEvent(elementId, "onMove");
                 if(loc.moveTo) $ax('#' + elementId).moveTo(loc.x, loc.y, moveInfo.options);
                 else $ax('#' + elementId).moveBy(loc.x, loc.y, moveInfo.options);
             });
@@ -881,7 +881,8 @@
         var centerShift;
         switch(anchor) {
             case "top left":
-                centerShift = { x: (newWidth - oldWidth) / 2, y: (newHeight - oldHeight) / 2 }; break;
+                // Don't need to update top/left
+                return css;
             case "top":
                 centerShift = { x: 0.0, y: (newHeight - oldHeight) / 2 }; break;
             case "top right":
