@@ -1,0 +1,22 @@
+.app {
+  font-family: Ratchicons;
+  margin: 5px;
+  display: inline-block;
+  font-size: 40px;
+  color: #ccc;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.app-grid li {
+	list-style: none;
+	display: inline-block;
+}
+
+.app-grid {
+	margin: 0;
+	padding: 0;
+}
