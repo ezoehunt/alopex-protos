@@ -5,7 +5,7 @@ This navigation model is a hub-and-spoke model in which the Homescreen is the hu
 ## How to use this prototype
 
 * Keep these directions handy on your desktop.
-* Send [this URL][1] to your phone:
+* Send this URL to your phone: [http://ezoehunt.github.io/alopex-protos/tabzero/lsdkf][1]
 
 * Open the URL on your phone. 
   * If you have an iPhone, you can add the URL to your homescreen and launch it like an app.
