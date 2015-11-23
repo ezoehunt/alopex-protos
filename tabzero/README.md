@@ -98,7 +98,6 @@ New Browser Tabs are created from multiple touchpoints. Here you'll open new Bro
   * Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
   * Try it out with the Email app/webapp! 
     * Open Email from Homescreen.
-    * Navigate to the Email Inbox screen. 
     * Long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.*
 
 
