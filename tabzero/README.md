@@ -9,6 +9,7 @@ TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub. 
 * Interface details are simplified - not all elements are visible in this prototype - so you can focus on the overall flow.
 * For demonstration purposes, Tabs are color-coded so you can make a connection between the opened Tabs and their presence in the Tab Manager.
 * The prototype includes a Status Bar, so you'll see 2 of them stacked on each other.
+* The protoype doesn't include the minimizing search bar - you'll have to imagine this.
 
 
 ## How you can help
@@ -47,13 +48,22 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 3. Close your notifications - tap the Home icon or swipe up from the bottom of Notifications (directly above the darker Navigation Bar at the bottom of the screen).
 4. Swipe up from the dark Navigation Bar at the bottom of the screen to see the *Tab Manager.* Since you haven't opened anything else yet, your Homescreen is the only thing in the Tab Manager right now. The Homescreen is always present in the Tab Manager at the the top. 
 5. Close the Tab Manager by tapping the Home icon.
+6. The Home icon works throughout this prototype to take you back to the Homescreen.
 
 
 #### Creating new Tabs from the Homescreen
-1. Scroll down your Homescreen and tap on the Vox Tech icon **to launch a new Tab for Vox Tech.**
-2. Tap the 1st article about Google's self-driving car. Notice that "<" arrow is enabled so you can return to the main Vox Technology page. You can go back and forth between these 2 pages with the arrows.
-3. Before moving on, make sure you're on the main Vox Tech page (not the self-driving car one).
-4. Now open the Tab Manager. The Vox Tech Tab can be deleted by tapping it (*not working in this prototype*). Note that the Homescreen Tab always stays at the top of your Tab Manager, and it's not close/delete-able. 
+Everything launched from the Homescreen opens in a new tab. Next you'll open a news site and the Email app/webapp.
+1. Vox Technology
+  * On your Homescreen, tap the Vox Tech icon **to launch a new Tab for Vox Tech.**
+  * Tap the 1st article about Google's self-driving car. Notice that "<" arrow is enabled so you can return to the main Vox Technology page. You can go back and forth between these 2 pages with the arrows.
+2. Email
+  * On your Homescreen, tap the Email icon **to launch a new Tab for Email.**
+  * Tap the first message about West Elm. The "<" arrow is now enabled so you can navigate between the Inbox and the West Elm message.
+3. Now open the Tab Manager (swipe up from the Navigation Bar). 
+  * The most recently viewed tab (should be Email) is displayed beneath the always present Homescreen Tab.
+  * The Tabs update their titles and images depending on which page of the Tab you last viewed. So if you last viewed the West Elm email message, the title of that Tab says "Email West Elm" and the image is of the West Elm message. Try it out by navigating back and forth and then checking the Tab Manager.
+  * In the Tab Manager, you tap a Tab to bring that Tab into focus. Try it out!
+  * In the Tab Manager, you swipe right to delete a tab. Try it out! Note that the Homescreen Tab cannot be deleted. 
 
 
 #### Creating new Tabs from the Tab Manager
