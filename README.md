@@ -2,9 +2,8 @@
 
 Using gh-pages branch to display Axure UX prototypes.
 
-Current prototypes are listed below:
-* [Spatial Model V2 - Option 1 (original)][1]
-* [Spatial Model V2 - Option 2][2]
+Current prototypes  listed below:
+* [TabZero - (a hub-and-spoke navigation model)][1]
 
-[1]: linkgoeshere
-[2]: linkgoeshere
+
+[1]: https://github.com/ezoehunt/alopex-protos/tree/gh-pages/tabzero
