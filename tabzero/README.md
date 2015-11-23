@@ -13,7 +13,7 @@ TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 
 
 ## How you can help
-* Provide thoughts or feedback in the [Open Issue][2].
+* Provide thoughts, questions, or feedback in the [Open Issue][2].
 * Focus on the overall userflow - don't get bogged down in motion or visual design - those will be addressed later.
 * The [Open Issue][2] contains some specific questions from the UX team. Thank you in advance for any thoughts you may have about these. 
 
