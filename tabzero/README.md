@@ -2,7 +2,6 @@
 
 TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 
-
 ## What this prototype is (and is not)
 * This prototype explains and illustrates one implementation of the new browser-based hub-and-spoke model. We're looking to learn where this model succeeds and where it may need to be modified.
 * Motion and visual design are simplified so you can focus on the overall flow.
@@ -52,8 +51,13 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 
 
 #### Opening content from the Homescreen
+
 Any content launched from the Homescreen opens in a new Browser Tab. Here you'll open a news site and the Email app/webapp.
+
 1. Vox Technology
+
+
+
 2. * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
   * Tap the 1st article about Google's self-driving car. 
   * Notice that "<" arrow is enabled now. Within a Browser Tab, you can navigate forward and backwards in that Tab's history. Try it out!
