@@ -82,6 +82,7 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 New Browser Tabs are created from multiple touchpoints. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
 
 * **Create new Browser Tab from the Tab Manager.**
+  * Open the Tab Manager. 
   * Tap the "+" icon *to launch a New Tab.*
   * Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
   * The New Tab will contain suggestions for users - content TBD.
