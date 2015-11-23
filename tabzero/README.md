@@ -55,9 +55,10 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 Any content launched from the Homescreen opens in a new Browser Tab. Here you'll open a news site and the Email app/webapp.
 1. Vox Technology
   * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
-  * Tap the 1st article about Google's self-driving car. Notice that "<" arrow is enabled so you can return to the main Vox Technology page. You can go back and forth between the pages in your browser history in this Browser Tab. Try it out!
+  * Tap the 1st article about Google's self-driving car. 
+  * Notice that "<" arrow is enabled now. Within a Browser Tab, you can navigate forward and backwards in that Tab's history. Try it out!
 2. Email
-  * On your Homescreen, tap the Email icon **to launch a new Browser Tab for Email.**
+  * Navigate to your Homescreen, and tap the Email icon **to launch a new Browser Tab for Email.**
   * Tap the first message about West Elm. The "<" arrow is now enabled so you can navigate between the Inbox and the West Elm message within this Browser Tab.
 3. Now open the Tab Manager (swipe up from the Navigation Bar). 
   * The most recently viewed Browser Tab is displayed beneath the always present Homescreen Tab.
@@ -69,18 +70,20 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 
 
 #### Creating new Browser Tabs
-New Browser Tabs can be created from multiple touchpoints. Within a Browser Tab, you can navigate forward and backwards in that Tab's history. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
+New Browser Tabs are created from multiple touchpoints. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
 1. from Tab Manager
   * Open the Tab Manager. 
   * Tap the "+" icon *to launch a New Tab.* Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
+  * The New Tab will contain suggestions for users - content TBD.
   * Open the Tab Manager again, and you'll see the New Tab there.
 2. from the Homescreen grid
   * On your Homescreen, long-press on the CNN Entertain icon *to launch a new Browser Tab for CNN Entertainment.*
   * Tap the first article about Pixar. You'll see the active "<" arrow so you can navigate between the main CNN Entertainment page and the Pixar article within this Browser Tab.
+  * Open the Tab Manager again to see the newly added CNN Entertainment Tab.
 3. from inside an app/webapp/site
   * If you're not already on it, navigate to the main CNN Entertainment page.
   * Scroll past the Pixar article and long-press on the "Adele impersonates herself" article *to launch a new Browser Tab for this article.* Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
-  * Try it out with the Email app/webapp! On the Email Inbox screen, long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.* 
+  * Try it out with the Email app/webapp! Navigate to the Email Inbox screen. Then long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.* 
 
 
 #### Searching
