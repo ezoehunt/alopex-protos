@@ -96,7 +96,10 @@ New Browser Tabs are created from multiple touchpoints. Here you'll open new Bro
   * If you're not already on it, navigate to the main CNN Entertainment page.
   * Scroll past the Pixar article and long-press the "Adele impersonates herself" article *to launch a new Browser Tab.* 
   * Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
-  * Try it out with the Email app/webapp! Navigate to the Email Inbox screen. Then long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.*
+  * Try it out with the Email app/webapp! 
+    * Open Email from Homescreen.
+    * Navigate to the Email Inbox screen. 
+    * Long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.*
 
 
 #### Searching
