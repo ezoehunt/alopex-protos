@@ -135,4 +135,4 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
 
 
 [2]: linkgoeshere
-[3]: http://ezoehunt.github.io/alopex-protos/tabzero/start_1.html
+[3]: http://ezoehunt.github.io/alopex-protos/tabzero/tabzero.html
