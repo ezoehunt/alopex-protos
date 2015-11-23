@@ -1,6 +1,6 @@
 # TabZero Navigation Model
 
-TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub. [See this visualization][1].
+TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 
 
 ## What this prototype is (and is not)
@@ -43,18 +43,18 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 
 
 #### Your first Browser Tab - the Homescreen
-1. Check out your Homescreen. This is your *first Browser Tab.* Scroll up and down to see your content.
-2. Swipe down from the Status Bar to see your *notificiations.* (notifications only works on the Homescreen in the prototype.)
+1. Check out your Homescreen. This is your **first Browser Tab.** Scroll up and down to see your content.
+2. Swipe down from the Status Bar to see your **notificiations.** (notifications only works on the Homescreen in the prototype.)
 3. Close your notifications - tap the Home icon or swipe up from the bottom of Notifications (directly above the darker Navigation Bar at the bottom of the screen).
-4. Swipe up from the dark Navigation Bar at the bottom of the screen to see the *Tab Manager.* Since you haven't opened anything else yet, your Homescreen is the only thing in the Tab Manager right now. The Homescreen is always present in the Tab Manager at the top. 
+4. Swipe up from the dark Navigation Bar at the bottom of the screen to see the **Tab Manager.** Since you haven't opened anything else yet, your Homescreen is the only thing in the Tab Manager right now. The Homescreen is always present in the Tab Manager at the top. 
 5. Close the Tab Manager by tapping the Home icon.
-6. **The Home icon works throughout this prototype to take you back to the Homescreen.**
+6. *The Home icon works throughout this prototype to take you back to the Homescreen.*
 
 
 #### Opening content from the Homescreen
 Any content launched from the Homescreen opens in a new Browser Tab. Here you'll open a news site and the Email app/webapp.
 1. Vox Technology
-  * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
+2. * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
   * Tap the 1st article about Google's self-driving car. 
   * Notice that "<" arrow is enabled now. Within a Browser Tab, you can navigate forward and backwards in that Tab's history. Try it out!
 2. Email
@@ -70,7 +70,9 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 
 
 #### Creating new Browser Tabs
+
 New Browser Tabs are created from multiple touchpoints. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
+
 1. from Tab Manager
   * Open the Tab Manager. 
   * Tap the "+" icon *to launch a New Tab.* Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
@@ -87,7 +89,9 @@ New Browser Tabs are created from multiple touchpoints. Here you'll open new Bro
 
 
 #### Searching
+
 You can search from multiple touchpoints. Here you'll search from the Homescreen, from inside an app/webapp/site, and from the New Tab.
+
 1. from the Homescreen
   * On your Homescreen, tap the search field at the top of the screen (where it says "Homescreen").
   * Close the search screen by tapping the "close" link in the upper right corner.
@@ -111,13 +115,7 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
 
 
 
-
-
-
-
-
-[1]: visualization
 [2]: open issues
 [3]: http://ezoehunt.github.io/alopex-protos/tabzero/start_1.html
-[4]: directions
+
 
