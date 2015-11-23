@@ -55,15 +55,17 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 Any content launched from the Homescreen opens in a new Browser Tab. Here you'll open a news site and the Email app/webapp.
 1. Vox Technology
   * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
-  * Tap the 1st article about Google's self-driving car. Notice that "<" arrow is enabled so you can return to the main Vox Technology page. You can go back and forth between the pages in your browser history in this Browser Tab.
+  * Tap the 1st article about Google's self-driving car. Notice that "<" arrow is enabled so you can return to the main Vox Technology page. You can go back and forth between the pages in your browser history in this Browser Tab. Try it out!
 2. Email
   * On your Homescreen, tap the Email icon **to launch a new Browser Tab for Email.**
   * Tap the first message about West Elm. The "<" arrow is now enabled so you can navigate between the Inbox and the West Elm message within this Browser Tab.
 3. Now open the Tab Manager (swipe up from the Navigation Bar). 
   * The most recently viewed Browser Tab is displayed beneath the always present Homescreen Tab.
   * The Browser Tabs update their titles and images depending on which page of the Browser Tab you last viewed. So if you last viewed the West Elm email message, the title of that Browser Tab says "Email West Elm" and the image is of the West Elm message. Try it out by navigating back and forth and then checking the Tab Manager.
-  * In the Tab Manager, you tap a Browser Tab to bring that Browser Tab into focus. Try it out!
-  * In the Tab Manager, you swipe right to delete a Browser Tab. Try it out! Note that the Homescreen Tab cannot be deleted. 
+4. Things you can do in the Tab Manager:
+  * Tap a Browser Tab to bring that Browser Tab into focus. Try it out!
+  * Swipe right to delete a Browser Tab. Note that the Homescreen Tab cannot be deleted. Try it out!
+  * Before going to the next section, delete the Vox and Email Tabs from your Tab Manager.
 
 
 #### Creating new Browser Tabs
