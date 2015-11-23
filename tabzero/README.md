@@ -83,15 +83,20 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 New Browser Tabs are created from multiple touchpoints. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
 
 1. from Tab Manager
+
   * Open the Tab Manager. 
   * Tap the "+" icon *to launch a New Tab.* Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
   * The New Tab will contain suggestions for users - content TBD.
   * Open the Tab Manager again, and you'll see the New Tab there.
+
 2. from the Homescreen grid
+
   * On your Homescreen, long-press on the CNN Entertain icon *to launch a new Browser Tab for CNN Entertainment.*
   * Tap the first article about Pixar. You'll see the active "<" arrow so you can navigate between the main CNN Entertainment page and the Pixar article within this Browser Tab.
   * Open the Tab Manager again to see the newly added CNN Entertainment Tab.
+
 3. from inside an app/webapp/site
+
   * If you're not already on it, navigate to the main CNN Entertainment page.
   * Scroll past the Pixar article and long-press on the "Adele impersonates herself" article *to launch a new Browser Tab for this article.* Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
   * Try it out with the Email app/webapp! Navigate to the Email Inbox screen. Then long-press the "compose email" icon in the upper right corner *to launch a new Browser Tab for Compose Email.* 
@@ -102,20 +107,25 @@ New Browser Tabs are created from multiple touchpoints. Here you'll open new Bro
 You can search from multiple touchpoints. Here you'll search from the Homescreen, from inside an app/webapp/site, and from the New Tab.
 
 1. from the Homescreen
+
   * On your Homescreen, tap the search field at the top of the screen (where it says "Homescreen").
   * Close the search screen by tapping the "close" link in the upper right corner.
   *  Now open it again, and tap the search field at the top of the keyboard screen. 
   * Select the first result ("new york news") *to launch a new Browser Tab for this search result.*
   * Tap the first article about NYC schools to go to that article. Again you'll see the "<" arrow is enabled to allow you to go back to the search results and choose a different link. 
   * On the Yahoo search results page, you could also long-press any link to open it in a new Browser Tab (not hooked up in this prototype).
+
 2. from inside an app/webapp/site
+
   * Open your Tab Manager, and tap the Email Compose Tab.
   * If Email Compose is not in your Tab Manager, tap the Email icon on your Homescreen. Then long-press the "compose email" icon in the upper right corner.
   * Tap the search field at the top of the screen (where it says "Email Compose").
   * Now tap the search field at the top of the keyboard.
   * Select the first result (juicy turkey allrecipes) *to launch a new Tab for this result.*
   * Note: Because you arrived at Allrecipes from the Email Compose screen, the "<" arrow is enabled so you can go back and forth between these 2 pages.
+
 3. from the New Tab
+
   * Open the Tab Manager, and tap the "+" icon *to launch a New Tab.*
   * Tap the search field at the top of the screen (where it says "New Tab").
   * Now tap the search field at the top of the keyboard screen.
