@@ -121,3 +121,35 @@
 }
 .box_white {
 }
+.tab_red {
+  font-family:'FiraSans-Regular', 'Fira Sans';
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+}
+.tab_light_blue {
+  font-family:'FiraSans-Regular', 'Fira Sans';
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+}
+.tab_lavendar {
+  font-family:'FiraSans-Regular', 'Fira Sans';
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+}
+.tab_orange_lite {
+  font-family:'FiraSans-Book', 'Fira Sans Book', 'Fira Sans';
+  font-weight:300;
+  font-style:normal;
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+}
+.tab_green {
+  font-family:'FiraSans-Regular', 'Fira Sans';
+  font-size:14px;
+  color:#FFFFFF;
+  text-align:left;
+}
