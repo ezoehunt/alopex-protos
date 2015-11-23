@@ -70,6 +70,8 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
   * The "<" arrow is now enabled so you can navigate between the Inbox and the West Elm message within this Browser Tab.
 * **Open the Tab Manager.**
   * The most recently viewed Browser Tab is displayed beneath the always present Homescreen Tab.
+  *   * If the Tabs aren't in the right order in the Tab Manager, there's a glitch.
+  *   Reload/refresh the prototype!
   * Titles and images for each Browser Tab update depending on which page of the Browser Tab you last viewed. So if you last viewed the West Elm email message, the title of that Browser Tab says "Email West Elm" and the image is of the West Elm message. Try it out by navigating back and forth and then checking the Tab Manager.
 * **Things you can do in the Tab Manager:**
   * Tap a Browser Tab to bring that Browser Tab into focus. Try it out!
