@@ -1,6 +1,6 @@
 # TabZero Navigation Model
 
-TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub. [See this visualization][1].
+TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 
 
 ## What this prototype is (and is not)
@@ -8,7 +8,7 @@ TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub. 
 * Motion and visual design are simplified so you can focus on the overall flow.
 * Interface details are simplified - not all elements are visible in this prototype - so you can focus on the overall flow.
 * For demonstration purposes, Tabs are color-coded so you can make a connection between the opened Tabs and their presence in the Tab Manager.
-* The prototype includes a Status Bar, so you'll see 2 of them stacked on each other.
+* The prototype includes a Status Bar. Depending on how you're viewing the prototype, you may see 2 of them stacked on each other.
 * The protoype doesn't include the minimizing search bar - you'll have to imagine this.
 
 
@@ -116,8 +116,6 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
 
 
 
-[1]: visualization
 [2]: open issues
 [3]: http://ezoehunt.github.io/alopex-protos/tabzero/start_1.html
-[4]: directions
 
