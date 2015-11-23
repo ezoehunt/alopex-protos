@@ -111,7 +111,7 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
   * Open the search screen again, and tap the search field at the top of the keyboard screen. 
   * Select the first result ("new york news") *to launch a new Browser Tab for this search result.*
   * Tap the first article about NYC schools to go to that article. 
-  * Again you'll see the "<" arrow is enabled to allow you to go back to the search results and choose a different link. 
+  * Again you'll see the "<" arrow is enabled to allow you to go back and forth between these 2 pages. 
   * Note: on the Yahoo search results page, you could also long-press any link to open it in a new Browser Tab (not hooked up in this prototype).
 * **Search from inside an app/webapp/site.**
   * Open your Tab Manager, and tap the Email Compose Tab.
