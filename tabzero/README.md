@@ -2,12 +2,13 @@
 
 TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 
+
 ## What this prototype is (and is not)
 * This prototype explains and illustrates one implementation of the new browser-based hub-and-spoke model. We're looking to learn where this model succeeds and where it may need to be modified.
 * Motion and visual design are simplified so you can focus on the overall flow.
 * Interface details are simplified - not all elements are visible in this prototype - so you can focus on the overall flow.
 * For demonstration purposes, Tabs are color-coded so you can make a connection between the opened Tabs and their presence in the Tab Manager.
-* The prototype includes a Status Bar, so you'll see 2 of them stacked on each other.
+* The prototype includes a Status Bar. Depending on how you're viewing the prototype, you may see 2 of them stacked on each other.
 * The protoype doesn't include the minimizing search bar - you'll have to imagine this.
 
 
@@ -56,18 +57,22 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 
 1. Vox Technology
 
-
-
-2. * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
+  * On your Homescreen, tap the Vox Tech icon **to launch a new Browser Tab for Vox Tech.**
   * Tap the 1st article about Google's self-driving car. 
   * Notice that "<" arrow is enabled now. Within a Browser Tab, you can navigate forward and backwards in that Tab's history. Try it out!
+
 2. Email
+
   * Navigate to your Homescreen, and tap the Email icon **to launch a new Browser Tab for Email.**
   * Tap the first message about West Elm. The "<" arrow is now enabled so you can navigate between the Inbox and the West Elm message within this Browser Tab.
+
 3. Now open the Tab Manager (swipe up from the Navigation Bar). 
+
   * The most recently viewed Browser Tab is displayed beneath the always present Homescreen Tab.
   * The Browser Tabs update their titles and images depending on which page of the Browser Tab you last viewed. So if you last viewed the West Elm email message, the title of that Browser Tab says "Email West Elm" and the image is of the West Elm message. Try it out by navigating back and forth and then checking the Tab Manager.
+
 4. Things you can do in the Tab Manager:
+  
   * Tap a Browser Tab to bring that Browser Tab into focus. Try it out!
   * Swipe right to delete a Browser Tab. Note that the Homescreen Tab cannot be deleted. Try it out!
   * Before going to the next section, delete the Vox and Email Tabs from your Tab Manager.
@@ -119,7 +124,5 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
 
 
 
-[2]: open issues
+[2]: linkgoeshere
 [3]: http://ezoehunt.github.io/alopex-protos/tabzero/start_1.html
-
-
