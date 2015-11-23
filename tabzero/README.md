@@ -81,17 +81,17 @@ Any content launched from the Homescreen opens in a new Browser Tab. Here you'll
 
 New Browser Tabs are created from multiple touchpoints. Here you'll open new Browser Tabs from the Tab Manager, from the Homescreen grid, and from inside an app/webapp/site.
 
-* **Create new Browser Tab using the "+" icon in the Tab Manager.**
+* **Create new Browser Tab from the Tab Manager.**
   * Tap the "+" icon *to launch a New Tab.*
   * Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
   * The New Tab will contain suggestions for users - content TBD.
   * Open the Tab Manager again, and you'll see the New Tab there.
-* **Create new Browser Tab by long-pressing a Homescreen icon.**
+* **Create new Browser Tab from the Homescreen grid.**
   * On your Homescreen, long-press the CNN Entertain icon *to launch a new Browser Tab.*
   * Tap the first article about Pixar. 
   * You'll see the active "<" arrow so you can navigate between the main CNN Entertainment page and the Pixar article within this Browser Tab.
   * Open the Tab Manager again to see the newly added CNN Entertainment Tab.
-* **Create new Browser Tab by long-pressing a link.**
+* **Create new Browser Tab from inside an app/webapp/site.**
   * If you're not already on it, navigate to the main CNN Entertainment page.
   * Scroll past the Pixar article and long-press the "Adele impersonates herself" article *to launch a new Browser Tab.* 
   * Since this is a new Browser Tab, the back/forward navigation is disabled until you navigate forward from this page.
