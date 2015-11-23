@@ -131,5 +131,5 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
 
 
 
-[2]: linkgoeshere
+[2]: https://github.com/fxos-product-design/alopex/issues/12
 [3]: http://ezoehunt.github.io/alopex-protos/tabzero/tabzero.html
