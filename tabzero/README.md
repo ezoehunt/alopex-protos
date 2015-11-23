@@ -22,7 +22,7 @@ TabZero is a hub-and-spoke navigation model in which the Homescreen is the hub.
 Because this flow is complex, the prototype was made with Axure. Unfortunately Axure prototypes don't work well with Android or FxOS. If you don't have an iPhone, you can still run it on your desktop!
 
 **If you have an iPhone:**
-  * Send this URL to your phone - [http://ezoehunt.github.io/alopex-protos/tabzero/start_1.html][3]
+  * Send this URL to your phone - [http://ezoehunt.github.io/alopex-protos/tabzero/tabzero.html][3]
   * Open the URL in your browser (tested with Safari).
   * Add the URL to your homescreen.
   * Launch the prototype from your home screen.
