@@ -106,7 +106,7 @@ New Browser Tabs are created from multiple touchpoints. Here you'll open new Bro
 You can search from multiple touchpoints. Here you'll search from the Homescreen, from inside an app/webapp/site, and from the New Tab.
 
 * **Search from Homescreen.**
-  * On your Homescreen, tap the search field at the top of the screen (where it says "Homescreen").
+  * On your Homescreen, tap the search field at the top of the screen (where it says "Search the web").
   * Close the search screen by tapping the "close" link in the upper right corner.
   * Open the search screen again, and tap the search field at the top of the keyboard screen. 
   * Select the first result ("new york news") *to launch a new Browser Tab for this search result.*
