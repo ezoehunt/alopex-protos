@@ -125,7 +125,7 @@ You can search from multiple touchpoints. Here you'll search from the Homescreen
   * Tap the search field at the top of the screen (where it says "New Tab").
   * Now tap the search field at the top of the keyboard screen.
   * Select the first result (san francisco weather) *to launch a new Browser Tab for this result.*
-  * Note: Because you arrived at Yahoo Search Results from the New Tab screen, the "<" arrow is enabled so you can go back and forth within this Browser Tab.
+  * Note: Because you arrived at Yahoo Search Results from the New Tab screen, the "<" arrow is enabled so you can go back and forth between the New Tab and these search results.
 
 
 
