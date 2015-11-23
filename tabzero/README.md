@@ -49,7 +49,7 @@ Because this flow is complex, the prototype was made with Axure. Unfortunately A
 * **Swipe down from the Status Bar to see your Notifications.**
   * Swiping for Notifications only works from the Homescreen in this prototype.
 * **Close your notifications** - tap the Home icon (or swipe up from the bottom of Notifications - directly above the darker Navigation Bar at the bottom of the screen).
-* **Open the Tab Manager** - swipe up from the dark Navigation Bar. 
+* **Open the Tab Manager** - swipe up from the Navigation Bar. 
   * Since you haven't opened anything else yet, your Homescreen is the only thing in the Tab Manager right now.
   * The Homescreen is always present in the Tab Manager at the top, and it is not delete-able.
 * **Close the Tab Manager** - tap the Home icon.
